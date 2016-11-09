@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Code for the Webform Date Format module.
+ * Changes all Webform date fields to use British format rather than American.
+ */
+
+/**
+ * Implements hook_webform_component_render_alter().
+ */
+function webform_date_format_webform_component_render_alter(&$element, &$component) {
+  if ($element['#type'] == 'date') {
+    $element['#process'][] = 'webform_date_format_webform_expand_date';
+  }
+}
+ 
+/**
+ * Process function to re-order the elements in the date widget.
+ */
+function webform_date_format_webform_expand_date($element) {
+  $element['day']['#weight'] = 0;
+  $element['month']['#weight'] = 1;
+  $element['year']['#weight'] = 2;
+  return $element;
+}

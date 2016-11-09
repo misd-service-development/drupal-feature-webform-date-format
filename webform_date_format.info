@@ -1,0 +1,7 @@
+name = Webform Date Format
+description = Converts Webform Date Fields From American to British Format.
+core = 7.x
+package = Webform
+version = 7.x-1.0
+project = webform_date_format
+dependencies[] = webform
